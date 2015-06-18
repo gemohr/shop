@@ -1,0 +1,61 @@
+@(kunde: String, produkte: List[Produkt])
+@main("Startseite")(kunde){
+	
+			
+	
+ <center id="center">
+	<div class="container-fluid" id=mainp">
+			<ul id=mainUl>
+				<li id=mainLi>
+					<a href='/neuheiten' id=mainA>
+					<div id=mainAA> 	
+					<script type="text/javascript">
+					// <![CDATA[
+					
+					var bilder = [];
+					@if(produkte!=null){			
+							
+						@for(i <- produkte){
+							bilder.push('@i.bildPfad');
+						}
+					}
+								
+					var nr = Math.floor(Math.random()*bilder.length); //Random-Selektion des Bilds bei "Neuheiten"
+					var bild = bilder[nr];
+					document.getElementById("mainAA").innerHTML = '<img src=/assets/'+bild+'  width="250" height="110"/>';
+					
+					// ]]>
+				</script></div>
+						<h2 id=mainH2>Neuheiten</h2>
+						<p id=mainP> </p>
+					</a>
+				</li>
+				<li id=mainLi>
+					<a href='/holzAussen' id=mainA>
+					<img src=@routes.Assets.at("images/HolzimAussenbereich.jpg")  width="250" height="110">
+						<h2 id=mainH2>Holz im Außenbereich</h2>
+						<p id=mainP> </p>
+					</a>
+				</li>
+				<li id=mainLi>
+					<a href='/holzInnen' id=mainA>
+					<img src=@routes.Assets.at("images/HolzimInnenraum.jpg")  width="250" height="110">
+						<h2 id=mainH2>Holz im Innenraum</h2>
+						<p id=mainP></p>
+					</a>
+				</li>
+				<li id=mainLi>
+					<a href='/brennstoffe' id=mainA>
+						<img src=@routes.Assets.at("images/Brennholz.jpg") width="250" height="110">
+						<h2 id=mainH2>Brennstoffe</h2>
+						<p id=mainP> </p>
+					</a>
+				</li>
+			</ul>
+	</div>
+	</center>
+	
+	 
+}
+
+

@@ -1,0 +1,53 @@
+@(kunde: String)
+@main("Holz im Aussenbereich")(kunde){
+<div id="divKontakt">
+	<form id="kontaktform">
+		<p>
+			Telefon Hotline: <a href="tel:+49800456954">0800-456954</a>
+			Kontaktieren Sie uns
+		</p>
+		<div>
+		<ul class="ohneAufzaehlung">
+			<li><label id="nameuberschrift"> Name: *</label> <input
+				id="name" placeholder="Name" type="text" value=""></li>
+			<li><label id="Kundennummeruberschrift"> Kundennummer: </label>
+				<input id="Kundennummer" placeholder="4584584" type="text" value="">
+			</li>
+			<li><label id="Betreffuberschrift"> Betreff: *</label> <select
+				id="Betreff">
+					<option value="" disabled selected>Bitte Wählen</option>
+					<option value="">Fragen zum Produkt</option>
+					<option value="">Meine Bestellung</option>
+					<option value="">zur Lieferung</option>
+					<option value="">Retour</option>
+					<option value="">Zahlung</option>
+					<option value="">Verbesserungen</option>
+			</select></li>
+			<li><label id="Bestellnummeruberschrift"> Bestellnummer:
+			</label> <input id="Bestellnummer" placeholder="1454845" type="text" value="">
+			</li>
+			<li><label id="E-Mail-Adresseuberschrift">
+					E-Mail-Adresse: * </label> <input id="Emailadresse"
+				placeholder="Max.Mustermann@@irgendwas.de" type="text" value="">
+			</li>
+			<li><label id="Telefonuberschrift" value= ""> Telefon: </label> <input
+				id="telefon" placeholder="14514/545514" type="text" value="">
+			</li>
+		</ul>
+		</div>
+		<div class="row">
+		<ul class="ohneAufzaehlung">
+			<li><label id="kommentaruberschrift"> Kommentar: <span>
+						* </span>
+			</label></li>
+			<li><textarea id="kommentar" placeholder="Ihr Kommentar"
+					name="komment" cols="5" rows="3"
+					></textarea></li>
+		</ul>
+		<input type="submit" value="Senden" id="submit">
+		
+		</div>
+		<p id="pflicht">* Pflichtfelder</p>
+	</form>
+	</div>
+}

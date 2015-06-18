@@ -1,0 +1,34 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+# Home page
+
+GET     /                           controllers.Application.index()
+GET     /agb                        controllers.Application.agb()
+GET     /artikel/                   controllers.Application.artikel(ausgewaehltesProdukt)
+GET     /datenschutz                controllers.Application.datenschutz()
+GET     /holzAussen                 controllers.Application.holzAussen()
+GET     /impressum                  controllers.Application.impressum()
+GET     /holzInnen                  controllers.Application.holzInnen()
+GET     /brennstoffe                controllers.Application.brennholz()
+GET     /kontakt                    controllers.Application.kontakt()
+GET     /login                      controllers.Application.login()
+GET		/loginFehler				controllers.Application.loginError()
+GET     /mainPage                   controllers.Application.mainPage()
+GET     /neuheiten                  controllers.Application.neuheiten()
+GET     /registrierung              controllers.Application.registrierung()
+GET 	/konto						controllers.Application.konto()
+POST	/signup/					controllers.Application.submitLogin()
+POST	/signupCheckData			controllers.Application.submitKundendaten()
+GET		/logout						controllers.Application.logout()
+POST	/neuerUser/					controllers.Application.neuerUser()
+GET		/autovervollstaendigung/	controllers.Application.autovervollstaendigungSuche(gesuchtesProdukt)
+GET		/suche/						controllers.Application.suche(gesuchtesProdukt)
+GET		/warenkorb/					controllers.Application.warenkorb()
+GET 	/inWarenkorb/				controllers.Application.inWarenkorb(ausgewaehltesProdukt,menge)
+GET		/artikelWS/					controllers.Application.socket()
+
+GET		/bestellungAbschliessen		controllers.Application.bestellungAbschliessen()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

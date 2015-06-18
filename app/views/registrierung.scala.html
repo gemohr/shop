@@ -1,0 +1,124 @@
+@(userForm: Form[models.Kunde], kunde:String)
+@import helper._
+
+
+@implicitField = @{ FieldConstructor(horizontalFormTB.f) }
+
+
+@main("Registrierung")(kunde){
+
+<script type="text/javascript">
+
+
+	
+	function checkEmptyInputFields(){
+	
+		if(document.getElementById('benutzername').value.length == 0){
+			document.getElementById('benutzername').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('benutzername').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('passwort').value.length == 0){
+			document.getElementById('passwort').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('benutzername').style.borderColor = "#04B404";
+		}
+		
+		if(!document.getElementById('anrede_Frau').checked && !document.getElementById('anrede_Herr').checked ){
+			document.getElementById('anrede').style.backgroundColor = "#FF6A6A";
+		}	
+		
+		if(document.getElementById('vorname').value.length == 0){
+			document.getElementById('vorname').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('vorname').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('nachname').value.length == 0){
+			document.getElementById('nachname').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('nachname').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('strasse').value.length == 0){
+			document.getElementById('strasse').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('strasse').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('hausnummer').value.length == 0){
+			document.getElementById('hausnummer').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('hausnummer').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('plz').value.length == 0){
+			document.getElementById('plz').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('plz').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('ort').value.length == 0){
+			document.getElementById('ort').style.borderColor = "#FF6A6A";
+		} else {
+			document.getElementById('ort').style.borderColor = "#04B404";
+		}
+		
+		if(document.getElementById('email').value.length == 0){
+			document.getElementById('email').style.borderColor = "#FF6A6A";
+			
+		} else {
+			document.getElementById('email').style.borderColor = "#04B404";
+		}
+		
+	}
+	
+	function farbeStandard(){
+		
+		document.getElementById('benutzername').style.borderColor = "";
+		document.getElementById('passwort').style.borderColor = "";
+		document.getElementById('anrede').style.backgroundColor = "#58FA82";
+		document.getElementById('vorname').style.borderColor = "";
+		document.getElementById('vorname').style.borderColor = "";
+		document.getElementById('nachname').style.borderColor = "";
+		document.getElementById('strasse').style.borderColor = "";
+		document.getElementById('hausnummer').style.borderColor = "";
+		document.getElementById('plz').style.borderColor = "";
+		document.getElementById('ort').style.borderColor = "";
+		document.getElementById('email').style.borderColor = "";
+		
+	}
+	
+</script>
+<div>
+<div id="divRegistrierungAussen" style="top:200px;">
+<p id="p1Registrierung"> Sie sind bereits registriert?<br/>dann loggen Sie sich hier ein</p>
+<p id="p2Registrierung"><form id="p2Registrierung" method="LINK" action= /login><input type="submit" value="Jetzt Einloggen"></form>
+</div>
+
+<div id="divRegistrierungInnen" style="top:200px;">
+		@helper.form(action = routes.Application.neuerUser(), 'id -> "userForm", 'class -> "control-group") {
+	
+		<div style="float:left;">@helper.inputText(userForm("benutzername"), '_label -> "Benutzername*", '_id -> "benutzername") </div>
+		<div style="margin-left:200px;">@helper.inputPassword(userForm("passwort"), '_label -> "Passwort*", '_id -> "passwort")</div>
+		<div>@helper.inputRadioGroup(userForm("anrede"), options = Seq("Herr" -> "Herr","Frau" -> "Frau"), '_id -> "anrede", '_label -> "Anrede*")</div>
+		<div style="float:left;">@helper.inputText(userForm("vorname"), '_label -> "Vorname*", '_id -> "vorname")</div>
+		<div style="margin-left:200px;">@helper.inputText(userForm("nachname"), '_label -> "Nachname*", '_id -> "nachname")</div>
+		<div style="float:left;">@helper.inputText(userForm("strasse"), '_label -> "Straße*", '_id -> "strasse")</div>
+		<div style="margin-left:200px;">@helper.inputText(userForm("hausnummer"), '_label -> "Hausnummer*", '_id -> "hausnummer")</div>
+		<div style="float:left;">@helper.inputText(userForm("plz"), '_label -> "Postleitzahl*", '_id -> "plz")</div>
+		<div style="margin-left:200px;">@helper.inputText(userForm("ort"), '_label -> "Ort*", '_id -> "ort")</div>
+		<div style="float:left;">@helper.inputText(userForm("email"), '_label -> "E-Mail Adresse*", '_id -> "email")</div>
+		<div style="margin-left:200px">@helper.inputText(userForm("telefon"), '_label -> "Telefonnummer", 'id -> "telefonnummerID")</div>
+
+		<p><span> * Pflichtfeld</span></p>
+		<input type ="submit" value="senden" onmouseover="checkEmptyInputFields()" onmouseout="farbeStandard()">
+			
+		}
+</div>
+<div>
+}
+
+
+	

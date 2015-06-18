@@ -1,0 +1,18 @@
+@(userForm: Form[models.Kunde], kunde: String)
+@import helper._
+
+@main("Login")(kunde){
+
+<center id="center">
+<div id="divLoginAussen">
+	<div id="divLoginInnen">
+	@helper.form(action = routes.Application.submitLogin(), 'id -> "userForm") {
+		@helper.inputText(userForm("benutzername"), '_label -> "Benutzername", '_id -> "username")
+		@helper.inputPassword(userForm("passwort"), '_label -> "Passwort", '_id -> "password")
+		<input type ="submit" value="senden">
+	
+	}
+	</div>
+</div>
+</center>
+}

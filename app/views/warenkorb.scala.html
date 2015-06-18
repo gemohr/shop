@@ -1,0 +1,33 @@
+ @(kunde: String, produkte:List[Produkt])
+ @main("Warenkorb")(kunde){
+ 
+
+ <center id="center">
+	
+		@if(kunde.equals("guest")){
+			<div><wbr>Bitte loggen Sie sich ein</div>
+		} else { @if(produkte.isEmpty()){
+			<div>Ihr Warenkorb ist leider leer. Bitte suchen Sie sich doch etwas aus unserem reichhalten Sortiment aus </div>
+		} else {
+		<h1>Warenkorb</h1>
+		
+			@for(produkt <- produkte) {
+			
+					<div id="w@produkt.artikelNummer" class="row" style="padding:5%">
+					<div class="col-md-4" id="divWarenkorb">
+						<a href="/artikel/?ausgewaehltesProdukt=@produkt.artikelNummer" id="linkSchrift">
+						<img src=/assets/@produkt.bildPfad  width="250" height="150"></a>
+						
+						<wbr>@produkt.artikelBezeichnung
+						<p>Preis: @produkt.preis</p><p>Bestellmenge: @produkt.bestellmenge</p>
+					</div>	
+					</div>
+					
+			}
+			<form action="/bestellungAbschliessen">
+				<input type="submit" value="verbindlich und unwiderruflich bestellen">
+			</form>
+			
+		}}
+	</center>
+}
